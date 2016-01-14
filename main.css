@@ -1,0 +1,13 @@
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+a {
+	color: #aaa;
+}
+a:focus, a:hover {
+	color: #777;
+}
+.watched {
+	text-decoration: line-through;
+}
