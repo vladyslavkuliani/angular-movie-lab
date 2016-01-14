@@ -9,7 +9,7 @@
 	* `index.html` with links to the Angular CDN and `app.js`.
 	* `ng-app` and `ng-controller` directives in the HTML.
 	* `app.js` that initializes your Angular app and adds a controller.
-3. Run `budo app.js --open` from your Terminal to start your server and open up your app in the browser.
+3. Run `budo app.js --open` from your Terminal to start your server and open your app in the browser.
 4. Implement solutions to the following challenges. Refer to the [solution branch]() for guidance.
 
 ## Challenges
@@ -22,13 +22,13 @@
 
 4. Create a form on the page for a user to add a new movie to the list. Write a function called `addMovie` and use the `ngSubmit` directive to add the new movie to `$scope.moviesToWatch` when the user submits the form.
 
-5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a checkbox with the label "View All" that allows the user to view the entire list of movies when checked, and the limited list when unchecked.
+5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a link for the user to "View More". Clicking the link should allow the user to view the entire list of movies.
 
 6. Put an icon next to each movie that resembles an "X" or a trash can. When the user clicks the icon, delete the movie from the list. **Hint:** Write a function called `deleteMovie`, and use the use the `ngClick` directive.
 
 ## Bonus
 
-1. But a checkbox next to each movie for the user to mark the movie as "watched". When the checkbox is checked, use the `ngStyle` or `ngClass` directive to strikethrough the text of the movie. When the checkbox is unchecked, the text should go back to normal.
+1. Implement a way for the user to mark a movie as "watched". Use the `ngStyle` or `ngClass` directive to strikethrough the text of the movie if it's been "watched".
 
 2. Give each movie in `$scope.moviesToWatch` an image. Make a button in the view for the user to change the background. When the user clicks the button, set the app's background to a random movie image from `$scope.moviesToWatch`. Every time the user clicks the button, they should see a different background image.
 
