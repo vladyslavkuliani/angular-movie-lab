@@ -10,7 +10,7 @@
 	* `ng-app` and `ng-controller` directives in the HTML.
 	* `app.js` that initializes your Angular app and adds a controller.
 3. Run `budo app.js --open` from your Terminal to start your server and open your app in the browser.
-4. Implement solutions to the following challenges. Refer to the [solution branch]() for guidance.
+4. Implement solutions to the following challenges. Refer to the [solution branch](https://github.com/sf-wdi-24/intro-angular-lab/tree/solution) for guidance.
 
 ## Challenges
 
