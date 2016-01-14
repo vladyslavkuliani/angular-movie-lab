@@ -37,9 +37,13 @@
 * As you make code changes, frequently commit and push to GitHub.
 * Once you've finished the assignment and pushed your work to GitHub, make a pull request from your fork to the original repo.
 
-## Resources
+## Optional Practice
 
 * <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target="_blank">Shaping up with Angular.js - Code School Tutorial</a>
+* [Custom Directives Reading](custom-directives.md)
+
+## Resources
+
 * <a href="https://docs.angularjs.org/guide/directive#what-are-directives-" target="_blank">AngularJS Developer Guide - Directives</a>
 * <a href="https://docs.angularjs.org/api/ng/directive" target="_blank">AngularJS API Reference - Directives</a>
 * <a href="https://docs.angularjs.org/api/ng/filter" target="_blank">AngularJS API Reference - Filter Components</a>
