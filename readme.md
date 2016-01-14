@@ -22,7 +22,7 @@
 
 4. Create a form on the page for a user to add a new movie to the list. Write a function called `addMovie` and use the `ngSubmit` directive to add the new movie to `$scope.moviesToWatch` when the user submits the form.
 
-5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a checkbox with the label "View All" that allows the user to view the entire list of movies when checked, and the limited list when unchecked.
+5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a checkbox with the label "Show All" that allows the user to view the entire list of movies when checked, and the limited list when unchecked.
 
 6. Put an icon next to each movie that resembles an "X" or a trash can. When the user clicks the icon, delete the movie from the list. **Hint:** Write a function called `deleteMovie`, and use the use the `ngClick` directive.
 
