@@ -14,13 +14,13 @@
 
 ## Challenges
 
-1. Inside your Angular controller, create an array of objects `$scope.moviesToWatch`, and use the `ngRepeat` directive to iterate over your list of movies and display them in the view.
+1. Inside your Angular controller, create an array of objects `vm.moviesToWatch`, and use the `ngRepeat` directive to iterate over your list of movies and display them in the view.
 
-2. Use the `orderBy` filter to sort the list of movies by name in descending order.
+2. Use the `orderBy` filter to sort the list of movies by title in descending order.
 
 3. Include the text "`{{moviesToWatch.length}}` movies to watch", and use the `ngPluralize` directive so that the text displays "movie" when there is one movie and "movies" in all other cases.
 
-4. Create a form on the page for a user to add a new movie to the list. Write a function called `addMovie` and use the `ngSubmit` directive to add the new movie to `$scope.moviesToWatch` when the user submits the form.
+4. Create a form on the page for a user to add a new movie to the list. Write a function called `addMovie` and use the `ngSubmit` directive to add the new movie to `vm.moviesToWatch` when the user submits the form.
 
 5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a link for the user to "View More". Clicking the link should allow the user to view the entire list of movies.
 
@@ -30,7 +30,7 @@
 
 1. Implement a way for the user to mark a movie as "watched". Use the `ngStyle` or `ngClass` directive to strikethrough the text of the movie if it's been "watched".
 
-2. Give each movie in `$scope.moviesToWatch` an image. Make a button in the view for the user to change the background. When the user clicks the button, set the app's background to a random movie image from `$scope.moviesToWatch`. Every time the user clicks the button, they should see a different background image.
+2. Give each movie in `vm.moviesToWatch` an image. Make a button in the view for the user to change the background. When the user clicks the button, set the app's background to a random movie image from `vm.moviesToWatch`. Every time the user clicks the button, they should see a different background image.
 
 ## Submission
 
