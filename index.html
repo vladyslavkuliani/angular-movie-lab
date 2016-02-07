@@ -1,82 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="movieApp">
+<html lang="en" data-ng-app="movieApp">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- bootstrap css -->
-	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-	<!-- custom styles -->
-	<link type="text/css" rel="stylesheet" href="main.css">
+  <!-- custom styles -->
+  <link type="text/css" rel="stylesheet" href="main.css">
 
-	<!-- angular -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+  <!-- angular -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
 
-	<!-- custom script -->	
-	<script type="text/javascript" src="app.js"></script>
+  <!-- custom script -->
+  <script type="text/javascript" src="app.js"></script>
 
-	<title>Intro Angular</title>
+  <title>Intro Angular</title>
 </head>
-<body ng-controller="MovieCtrl" ng-style="style">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
+<body data-ng-controller="MovieCtrl as movies" data-ng-style="movies.style">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-				<!-- form to add new movie -->
-				<br>
-		    <form ng-submit="addMovie()">
-		      <div class="form-group">
-		        <label for="movie-title">Movie Title</label>
-		        <input type="text" ng-model="movie.title" class="form-control" placeholder="What do you want to watch?" autofocus>
-		      </div>
-		      <input type="submit" value="Add Movie" class="btn btn-default">
-		    </form>
-				
-				<!-- show all moviesToWatch -->
-			  <div ng-if="moviesToWatch.length > 0">
-			  	<hr>
-			    <div class="panel panel-default">
-			      <div class="panel-heading">
-			        <h3 class="panel-title">
-			        	{{moviesToWatch.length}} <span ng-pluralize count="moviesToWatch.length" when="{'1': 'Movie', 'other': 'Movies'}"></span> to Watch
-			        </h3>
-			      </div>
-			      <ul class="list-group">
-			      	
-			      	<!-- code for one movie -->
-			        <li ng-repeat="movie in moviesToWatch | orderBy:'title' | limitTo: movieLimit" class="list-group-item">
-			        	<p class="list-group-item-text">
+        <!-- form to add new movie -->
+        <br>
+        <form data-ng-submit="movies.addMovie()">
+          <div class="form-group">
+            <label for="movie-title">Movie Title</label>
+            <input type="text" data-ng-model="movies.movie.title" class="form-control" placeholder="What do you want to watch?" autofocus>
+          </div>
+          <input type="submit" value="Add Movie" class="btn btn-default">
+        </form>
 
-			        		<!-- movie title with conditional class -->
-			        		<span ng-class="{watched: movie.watched}">{{movie.title}}</span>
-			        		
-			        		<!-- icons to mark as watched and delete -->
-			        		<span class="pull-right">
-			        		  <a href="#" ng-click="markWatched(movie)"><i class="glyphicon" ng-class="{'glyphicon-check': movie.watched, 'glyphicon-unchecked': !movie.watched}"></i></a>
-			        		  <a href="#" ng-click="deleteMovie(movie)"><i class="glyphicon glyphicon-remove-circle"></i></a>
-			        		</span>
-			        	</p>
-			        </li>
-			        <!-- code for one movie ends here -->
-			        
-			        <li class="list-group-item">
-		        		<p class="list-group-item-text">
-		        			<a href="#" ng-click="toggleMovieLimit()">
-		        				Show {{movieLimit ? "More" : "Less"}}
-		        			</a>
-		        		</p>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
+        <!-- show all moviesToWatch -->
+        <div data-ng-if="movies.moviesToWatch.length > 0">
+          <hr>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                {{movies.moviesToWatch.length}} <spandata-ng-pluralize count="movies.moviesToWatch.length" when="{'1': 'Movie', 'other': 'Movies'}"></span> to Watch
+              </h3>
+            </div>
+            <ul class="list-group">
+              <!-- code for one movie -->
+              <li data-ng-repeat="movie in movies.moviesToWatch | orderBy:'title' | limitTo: movies.movieLimit" class="list-group-item">
+                <p class="list-group-item-text">
 
-			  <hr>
-			  <button class="btn btn-primary" ng-click="changeBackground()">Change Background</button>
-			  <button class="btn btn-default" ng-click="clearBackground()">Clear Background</button>
+                  <!-- movie title with conditional class -->
+                  <span data-ng-class="{watched: movie.watched}">{{movie.title}}</span>
 
-			</div>
-		</div>
-	</div>
+                  <!-- icons to mark as watched and delete -->
+                  <span class="pull-right">
+                    <a href="#" data-ng-click="movies.markWatched(movie)"><i class="glyphicon" data-ng-class="{'glyphicon-check': movie.watched, 'glyphicon-unchecked': !movie.watched}"></i></a>
+                    <a href="#" data-ng-click="movies.deleteMovie(movie)"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                  </span>
+                </p>
+              </li>
+              <!-- code for one movie ends here -->
+
+              <li class="list-group-item">
+                <p class="list-group-item-text">
+                  <a href="#" data-ng-click="movies.toggleMovieLimit()">
+                    Show {{movies.movieLimit ? "More" : "Less"}}
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+        <button class="btn btn-primary" data-ng-click="movies.changeBackground()">Change Background</button>
+        <button class="btn btn-default" data-ng-click="movies.clearBackground()">Clear Background</button>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>
