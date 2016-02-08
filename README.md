@@ -5,7 +5,7 @@
 ## Getting Started
 
 1. Fork this repo, and clone it into your `develop` folder on your local machine.
-2. Change directories into `intro-angular-lab`, and follow the instructions from this morning's module to set up a new Angular app. You will need:
+2. Change directories into `angular-movie-lab`, and follow the instructions from this morning's module to set up a new Angular app. You will need:
 	* `index.html` with links to the Angular CDN and `app.js`.
 	* `ng-app` and `ng-controller` directives in the HTML.
 	* `app.js` that initializes your Angular app and adds a controller.
