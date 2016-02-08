@@ -24,7 +24,7 @@ Sometimes when you're looking to solve a problem, you find that another develope
 
 > Reference: <a href="http://www.ng-newsletter.com/posts/directives.html" target="_blank">ng-newsletter blog post on directives</a>
 
-Imagine you wanted to make a box that displayed a city's current weather that was re-useable across pages for various cities. A directive would be a great solution! Let's look at how you'd build this directive that fetches a city's weather data and displays it on the page.
+Imagine you wanted to make a box that displayed a city's current weather that was re-useable across pages for various cities. A directive would be a great solution! Let's look at how you'd build this directive that fetches a city's weather data and displays it on the page.	
 
 Place this HTML anywhere inside your Angular controller:
 
@@ -38,9 +38,11 @@ Add this directive to your app:
 
 ```js
 // app.js
-angular.module('yourApp', []);
+angular.module('weatherApp', [])
+  .directive('currentWeather', currentWeather);
 
-app.directive('currentWeather', function() {
+function currentWeather() {
+  vm = this;
   return {
     restrict: 'E',
     scope: {
@@ -50,20 +52,23 @@ app.directive('currentWeather', function() {
     // templateUrl: 'templates/currentWeatherTemplate.html',
     // transclude: true,
     controller: ['$scope', '$http',
-      function ($scope, $http) {
+      function (vm, $http) {
         var url = "http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&callback=JSON_CALLBACK&q=";
-        $scope.getWeather = function(city) {
-          $http({ method: 'JSONP', url: url + city })
+        // ask Justin for an API key or go to openweathermap.org to acquire your own!
+        var apiKey = "&APPID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+        vm.getWeather = function(city) {
+          $http({ method: 'JSONP', url: url + city + apiKey })
             .success(function(data) {
-              $scope.weather = data;
+              vm.weather = data;
             });
         }
     }],
-    link: function (scope, element, attrs) {
-      scope.weather = scope.getWeather(attrs.city);
+    link: function (vm, element, attrs) {
+      vm.weather = vm.getWeather(attrs.city);
     }
   }
-});
+};
 ```
 
 ## Angular Directive Options
@@ -73,10 +78,10 @@ app.directive('currentWeather', function() {
 The first option in an Angular directive is the `restrict` option. This option lets you specify how exactly you'd like to call the directive in HTML. See the options below; A and E are the most popular.
 
 ```html
-'A' - <span ng-sparkline></span>
-'E' - <ng-sparkline></ng-sparkline>
+'A' - <span data-ngsparkline></span>
+'E' - <data-ng-sparkline></data-ng-sparkline>
 'C' - <span class="ng-sparkline"></span>
-'M' - <!-- directive: ng-sparkline -->
+'M' - <!-- directive: data-ngsparkline -->
 ```
 
 #### template and templateUrl
@@ -85,7 +90,7 @@ Using the `template` and `templateUrl` options you can define an HTML template i
 
 #### Scope inside a Directive
 
-But wait a sec, how do directives interact with the `$scope` set by the local controller? Can I get data from the local controller into my directive?
+But wait a sec, how do directives interact with the `vm` set by the local controller? Can I get data from the local controller into my directive?
 
 By default, scopes do inherit the scope of their local controller just like they were HTML in the template. However, you can use the `scope` option to change this default behavior to isolate your directive's scope.
 
@@ -102,9 +107,9 @@ By default, scopes do inherit the scope of their local controller just like they
   ```
 
   ```html
-  <input type="text" ng-model="recipient.email">
+  <input type="text" data-ngmodel="recipient.email">
   <!-- invoke the directive -->
-  <div scope-example ng-model="recipient.email" on-send="sendMail()" from-name="ari@fullstack.io">
+  <div scope-example data-ngmodel="recipient.email" on-send="sendMail()" from-name="ari@fullstack.io">
   ```
 
 #### controller
