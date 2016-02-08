@@ -40,7 +40,6 @@
 ## Optional Practice
 
 * <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target="_blank">Shaping up with Angular.js - Code School Tutorial</a>
-* [Custom Directives Reading](custom-directives.md)
 
 ## Resources
 
