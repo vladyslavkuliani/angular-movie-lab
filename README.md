@@ -23,7 +23,7 @@
 
 5. Use the `limitTo` filter to limit the number of movies displayed to five. **Bonus:** Add a link for the user to "View More". Clicking the link should allow the user to view the entire list of movies.
 
-6. Put an icon next to each movie that resembles an "X" or a trash can. When the user clicks the icon, delete the movie from the list. **Hint:** Write a function called `deleteMovie`, and use the use the `ngClick` directive.
+6. Put an icon next to each movie that resembles an "X" or a trash can. When the user clicks the icon, delete the movie from the list. **Hint:** Write a function called `deleteMovie`, and use the `ngClick` directive.
 
 ## Bonus
 
