@@ -31,7 +31,8 @@ function MovieController(){
     vm.moviesToWatch.push({title: movieTitle});
   }
 
-  vm.showMore = function(){
-    
+  vm.deleteMovie = function(movie){
+    var index = vm.moviesToWatch.indexOf(movie);
+    vm.moviesToWatch.splice(index, 1);
   }
 }

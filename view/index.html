@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Movie lab</title>
+    <link type="text/css" rel="stylesheet" href="../public/styles/style.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
     <script src="../public/scripts/app.js"></script>
 </head>
@@ -21,7 +22,7 @@
         </ng-pluralize>
         <div class="" ng-repeat="movie in movies.moviesToWatch | orderBy:'-title' | limitTo: limit">
             <hr>
-            <p>{{movie.title}}</p>
+            <p class="movieTitle">{{movie.title}}</p><span id="trash" ng-click="movies.deleteMovie(movie)"><img src="../public/images/trashIcon.png"/></span>
             <p>{{movie.genre}}</p>
         </div>
         <a ng-click="limit = movies.moviesToWatch.length" href="#">Show more</a>
