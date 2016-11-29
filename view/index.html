@@ -22,6 +22,8 @@
         </ng-pluralize>
         <div class="" ng-repeat="movie in movies.moviesToWatch | orderBy:'-title' | limitTo: limit">
             <hr>
+            <div><img class="moviePicture" src="{{movie.moviePicture}}"/></div>
+            <button ng-click="movies.randomPic(movie)">Next Picture</button>
             <p class="movieTitle">{{movie.title}}</p><span id="trash" ng-click="movies.deleteMovie(movie)"><img src="../public/images/trashIcon.png"/></span>
             <p>{{movie.genre}}</p>
         </div>

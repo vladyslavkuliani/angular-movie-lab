@@ -10,3 +10,8 @@ img {
 #trash:hover{
   cursor: pointer;
 }
+
+.moviePicture{
+  width: 100px;
+  height: 100px;
+}
